@@ -1,9 +1,9 @@
-# Economy Bot – Dokumentace
+# JelBot – Dokumentace
 
 Verze: beta 1.0.0
 
 # Popis:
-Economy Bot je Discord bot pro správu herní měny Jelcoins a kreditů na serveru. Umožňuje uživatelům nakupovat, prodávat, sbírat Jelcoiny a nakupovat role ve shopu. Administrátorům poskytuje nástroje pro správu uživatelů a nastavení shopu.
+JelBot je Discord bot pro správu herní měny Jelcoins a kreditů na serveru. Umožňuje uživatelům nakupovat, prodávat, sbírat Jelcoiny a nakupovat role ve shopu. Administrátorům poskytuje nástroje pro správu uživatelů a nastavení shopu.
 
 # Uživatelské příkazy
 
