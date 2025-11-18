@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JelBot – Dokumentace</title>
+<style>
+    /* --- Reset a základ --- */
+    * {margin:0; padding:0; box-sizing:border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;}
+    body {background-color:#1e1e2f; color:#e0e0e0; line-height:1.6; padding:20px;}
+    a {color:#61dafb; text-decoration:none;}
+    a:hover {text-decoration:underline;}
+
+    /* --- Container --- */
+    .container {max-width:1000px; margin:0 auto; padding:20px;}
+
+    /* --- Hlavní nadpisy --- */
+    h1, h2, h3 {margin-bottom:15px;}
+    h1 {color:#61dafb;}
+    h2 {color:#f5a623; margin-top:30px;}
+    h3 {color:#f8e71c;}
+
+    /* --- Sekce commandů --- */
+    .command {background-color:#2a2a40; border-left:5px solid #61dafb; padding:15px; margin-bottom:15px; border-radius:8px;}
+    .command h3 {margin-bottom:10px;}
+    .command p {margin-bottom:5px;}
+    .command .code {background-color:#1e1e2f; color:#61dafb; padding:2px 6px; border-radius:4px; font-family: monospace;}
+    
+    /* --- Embed-like bloky --- */
+    .embed {background-color:#2c2c50; border-left:5px solid #f5a623; padding:15px; border-radius:8px; margin-bottom:15px;}
+    .embed p {margin-bottom:5px;}
+
+    /* --- Tlačítka / odkazy --- */
+    .btn {display:inline-block; background-color:#61dafb; color:#1e1e2f; padding:8px 15px; border-radius:6px; text-decoration:none; margin:5px 0;}
+    .btn:hover {background-color:#52b8e0;}
+
+    /* --- Footer --- */
+    footer {margin-top:50px; text-align:center; font-size:0.9em; color:#888;}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+<h1>Economy Bot – Dokumentace</h1>
+<p><strong>Verze:</strong> beta 1.0.0</p>
+<p>Economy Bot je Discord bot pro správu herní měny <strong>Jelcoins</strong> a kreditů na serveru. Umožňuje uživatelům nakupovat, prodávat, sbírat Jelcoiny a nakupovat role ve shopu. Administrátorům poskytuje nástroje pro správu uživatelů a nastavení shopu.</p>
+
+<h2>Uživatelské příkazy</h2>
+
+<div class="command">
+<h3>j!buyjel &lt;amount&gt;</h3>
+<p><strong>Popis:</strong> Koupí zadané množství Jelcoinů za aktuální cenu v kreditech.</p>
+<p><strong>Funkce:</strong> Vypočítá cenu s poplatkem 4%, zobrazí potvrzení a po potvrzení odečte kredity, přidá Jelcoiny, přičte poplatek k celkovým fee a aktualizuje cenu Jelcoinu.</p>
+<p><strong>Limity:</strong> Max. 1 000 000 000 Jelcoinů najednou.</p>
+</div>
+
+<div class="command">
+<h3>j!selljel &lt;amount&gt;</h3>
+<p><strong>Popis:</strong> Prodá zadané množství Jelcoinů za aktuální cenu v kreditech.</p>
+<p><strong>Funkce:</strong> Odečte Jelcoiny, přidá kredity minus 6% poplatek, aktualizuje cenu Jelcoinu.</p>
+<p><strong>Limity:</strong> Max. 1 000 000 000 Jelcoinů najednou.</p>
+</div>
+
+<div class="command">
+<h3>j!stats</h3>
+<p><strong>Popis:</strong> Zobrazí uživatelské a globální statistiky ekonomiky.</p>
+<p><strong>Funkce:</strong> Zobrazuje kreditový a jelcoinový zůstatek, pořadí uživatele, celkové statistiky a cenu Jelcoinu.</p>
+</div>
+
+<div class="command">
+<h3>j!mine</h3>
+<p><strong>Popis:</strong> Umožňuje uživateli "mine" Jelcoiny jednou za 24 hodin.</p>
+<p><strong>Funkce:</strong> Generuje náhodně 0,5–10 Jelcoinů, šance 15% na bonus 0,5–3 Jelcoinů, aktualizuje uživatelský zůstatek a cenu.</p>
+</div>
+
+<div class="command">
+<h3>j!shop</h3>
+<p><strong>Popis:</strong> Zobrazí interaktivní shop serveru s rolemi k nákupu.</p>
+<p><strong>Funkce:</strong> Umožní kliknout na položku a potvrdit nákup přes tlačítka. Odečte kredity/jelcoiny a přidá roli.</p>
+</div>
+
+<div class="command">
+<h3>j!poplatky</h3>
+<p><strong>Popis:</strong> Zobrazí celkové nasbírané poplatky.</p>
+</div>
+
+<div class="command">
+<h3>j!verze</h3>
+<p><strong>Popis:</strong> Zobrazí verzi bota.</p>
+</div>
+
+<h2>Administrátorské příkazy</h2>
+
+<div class="command">
+<h3>j!add &lt;@user&gt; &lt;amount&gt; &lt;credits/jelcoins&gt;</h3>
+<p><strong>Popis:</strong> Přidá kredit nebo Jelcoin uživateli.</p>
+</div>
+
+<div class="command">
+<h3>j!reset &lt;@user&gt;</h3>
+<p><strong>Popis:</strong> Resetuje uživatele úplně nebo jen jednu hodnotu.</p>
+<p><strong>Funkce:</strong> Dropdown menu: "Všechno / Credits / Jelcoins". Potvrzení tlačítkem. Aktualizuje databázi podle výběru.</p>
+</div>
+
+<div class="command">
+<h3>j!shopset &lt;@role&gt; &lt;amount&gt; &lt;credits/jelcoins&gt;</h3>
+<p><strong>Popis:</strong> Přidá roli do shopu s určenou cenou a měnou.</p>
+</div>
+
+<div class="command">
+<h3>j!shopdel &lt;id&gt;</h3>
+<p><strong>Popis:</strong> Odstraní položku ze shopu podle ID.</p>
+</div>
+
+<h2>Další vlastnosti</h2>
+<ul>
+<li>Dynamická cena Jelcoinů (nákup zvyšuje, prodej snižuje).</li>
+<li>Poplatky (fee) se přičítají při každém nákupu/prodeji.</li>
+<li>Chyby a validace (nesprávný formát, cooldowny, omezení rolí).</li>
+<li>Interaktivní potvrzení u nákupů a resetů (tlačítka a dropdown).</li>
+</ul>
+
+<footer>
+<p>© 2025 JelBot | Dokumentace</p>
+</footer>
+
+</div>
+
+</body>
+</html>
